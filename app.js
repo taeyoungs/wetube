@@ -10,6 +10,7 @@ import routers from './router';
 
 const app = express();
 
+app.set('view engine', 'pug');
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
