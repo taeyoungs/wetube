@@ -1,4 +1,5 @@
 import {videos} from '../db';
+import routers from '../router';
 
 export const home = (req, res) => {
   res.render('home', {pageTitle: 'Home', videos});
@@ -12,13 +13,21 @@ export const search = (req, res) => {
 };
 
 // videoRouter.js
-export const upload = (req, res) => res.render('upload', {pageTitle: 'Upload'});
+export const getUpload = (req, res) =>
+  res.render('upload', {pageTitle: 'Upload'});
+export const postUpload = (req, res) => {
+  const {
+    body: {file, title, description},
+  } = req;
+  // To Do: Upload and save video
+  res.redirect(routers.videoDetail(582932));
+};
 
-export const video_profile = (req, res) =>
-  res.render('video_profile', {pageTitle: 'Video Profile'});
+export const videoDetail = (req, res) =>
+  res.render('videoDetail', {pageTitle: 'Video Detail'});
 
-export const edit_video = (req, res) =>
-  res.render('edit_video', {pageTitle: 'Edit Video'});
+export const editVideo = (req, res) =>
+  res.render('editVideo', {pageTitle: 'Edit Video'});
 
-export const delete_video = (req, res) =>
-  res.render('delete_video', {pageTitle: 'Delete Video'});
+export const deleteVideo = (req, res) =>
+  res.render('deleteVideo', {pageTitle: 'Delete Video'});
