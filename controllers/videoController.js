@@ -10,8 +10,6 @@ export const search = (req, res) => {
 // videoRouter.js
 export const upload = (req, res) => res.render('upload', {pageTitle: 'Upload'});
 
-export const videos = (req, res) => res.render('videos', {pageTitle: 'Videos'});
-
 export const video_profile = (req, res) =>
   res.render('video_profile', {pageTitle: 'Video Profile'});
 
