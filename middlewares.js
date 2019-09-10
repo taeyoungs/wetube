@@ -1,5 +1,5 @@
-import routers from './router';
 import multer from 'multer';
+import routers from './router';
 
 const multerVideo = multer({dest: 'uploads/videos/'});
 

@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+
 dotenv.config();
 
 // () -> String으로된 데이터베이스 -> 어디에 데이터베이스가 저장되어 있는지
