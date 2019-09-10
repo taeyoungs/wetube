@@ -1,6 +1,7 @@
 import routers from '../router';
 import Video from '../models/Video';
 
+// HOME
 export const home = async (req, res) => {
   try {
     const videos = await Video.find({});
@@ -11,6 +12,7 @@ export const home = async (req, res) => {
   }
 };
 
+// SEARCH
 export const search = (req, res) => {
   const {
     query: {term: searchingBy},
@@ -19,16 +21,25 @@ export const search = (req, res) => {
 };
 
 // videoRouter.js
+
+// UPLOAD - get, post
 export const getUpload = (req, res) =>
   res.render('upload', {pageTitle: 'Upload'});
-export const postUpload = (req, res) => {
-  const {
-    body: {file, title, description},
-  } = req;
+export const postUpload = async (req, res) => {
   // To Do: Upload and save video
-  res.redirect(routers.videoDetail(582932));
+  const {
+    body: {title, description},
+    file: {path},
+  } = req;
+  const newVideo = await Video.create({
+    fileUrl: path,
+    title,
+    description,
+  });
+  res.redirect(routers.videoDetail(newVideo.id));
 };
 
+// VIDEO DETAIL
 export const videoDetail = (req, res) =>
   res.render('videoDetail', {pageTitle: 'Video Detail'});
 

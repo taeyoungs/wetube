@@ -1,4 +1,7 @@
 import routers from './router';
+import multer from 'multer';
+
+const multerVideo = multer({dest: 'uploads/videos/'});
 
 export const localMiddleware = (req, res, next) => {
   res.locals.siteName = 'WeTube';
@@ -9,3 +12,6 @@ export const localMiddleware = (req, res, next) => {
   };
   next();
 };
+
+// single() : 1개의 파일만 선택가능
+export const uploadVideo = multerVideo.single('videoFile');
