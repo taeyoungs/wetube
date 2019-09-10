@@ -1,4 +1,3 @@
-import {videos} from '../db';
 import routers from '../router';
 
 export const home = (req, res) => {
