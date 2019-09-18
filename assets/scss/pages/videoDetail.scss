@@ -1,0 +1,38 @@
+.video-detail__container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+  button {
+    max-width: 150px;
+    margin-bottom: 25px;
+    background-color: #472410;
+    color: white;
+  }
+  .video__player {
+    margin-bottom: 20px;
+    video {
+      min-height: 400px;
+    }
+  }
+  .video__title {
+    font-size: 30px;
+    font-weight: 600;
+  }
+  .video__description {
+    font-size: 20px;
+  }
+  .video__info,
+  .video__views,
+  .video__title,
+  .video__description {
+    margin-bottom: 15px;
+  }
+
+  .video__comments {
+    align-self: center;
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
