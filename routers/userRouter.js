@@ -1,17 +1,16 @@
 import express from 'express';
 import routers from '../router';
 import {
-  users,
   userDetail,
   editProfile,
   changePassword,
 } from '../controllers/userController';
+import {onlyPrivate} from '../middlewares';
 
 const userRouter = express.Router();
 
-userRouter.get('/', users);
-userRouter.get(routers.editProfile, editProfile);
-userRouter.get(routers.changePassword, changePassword);
+userRouter.get(routers.editProfile, onlyPrivate, editProfile);
+userRouter.get(routers.changePassword, onlyPrivate, changePassword);
 userRouter.get(routers.userDetail(), userDetail);
 
 export default userRouter;

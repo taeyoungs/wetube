@@ -10,5 +10,21 @@ export const localMiddleware = (req, res, next) => {
   next();
 };
 
+export const onlyPublic = (req, res, next) => {
+  if (req.user) {
+    res.redirect(routers.home);
+  } else {
+    next();
+  }
+};
+
+export const onlyPrivate = (req, res, next) => {
+  if (req.user) {
+    next();
+  } else {
+    res.redirect(routers.home);
+  }
+};
+
 // single() : 1개의 파일만 선택가능
 export const uploadVideo = multerVideo.single('videoFile');
