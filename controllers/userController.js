@@ -33,10 +33,15 @@ export const postJoin = async (req, res, next) => {
 
 export const getLogin = (req, res) =>
   res.render('login', {pageTitle: 'Log in'});
+
 export const postLogin = passport.authenticate('local', {
   failureRedirect: routers.login,
   successRedirect: routers.home,
 });
+
+export const githubLoginCallback = (accessToken, refreshToken, profile, cb) => {
+  console.log(accessToken, refreshToken, profile, cb);
+};
 
 // userRouter.js
 export const users = (req, res) => res.render('users', {pageTitle: 'Users'});
