@@ -389,10 +389,12 @@ button {
     font-weight: 600;
     font-size: 15px;
     cursor: pointer; }
-    .social-login button i {
-      font-size: 20px;
-      padding: 2px 2px 5px 0;
-      font-weight: 400; }
+    .social-login button a {
+      color: white; }
+      .social-login button a i {
+        font-size: 20px;
+        padding: 2px 2px 5px 0;
+        font-weight: 400; }
   .social-login .social-login--github {
     margin-bottom: 12px;
     background-color: rgba(0, 0, 0, 0.7);

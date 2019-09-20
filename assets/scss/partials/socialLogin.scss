@@ -4,10 +4,13 @@
     font-weight: 600;
     font-size: 15px;
     cursor: pointer;
-    i {
-      font-size: 20px;
-      padding: 2px 2px 5px 0;
-      font-weight: 400;
+    a {
+      color: white;
+      i {
+        font-size: 20px;
+        padding: 2px 2px 5px 0;
+        font-weight: 400;
+      }
     }
   }
   .social-login--github {
