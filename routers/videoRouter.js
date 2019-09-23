@@ -1,5 +1,5 @@
 import express from 'express';
-import routers from '../router';
+import routes from '../routes';
 import {
   getUpload,
   postUpload,
@@ -13,17 +13,17 @@ import {uploadVideo, onlyPrivate} from '../middlewares';
 const videoRouter = express.Router();
 
 // UPLOAD
-videoRouter.get(routers.upload, onlyPrivate, getUpload);
-videoRouter.post(routers.upload, onlyPrivate, uploadVideo, postUpload);
+videoRouter.get(routes.upload, onlyPrivate, getUpload);
+videoRouter.post(routes.upload, onlyPrivate, uploadVideo, postUpload);
 
 // VIDEO DETAIL
-videoRouter.get(routers.videoDetail(), videoDetail);
+videoRouter.get(routes.videoDetail(), videoDetail);
 
 // EDIT VIDEO
-videoRouter.get(routers.editVideo(), onlyPrivate, getEditVideo);
-videoRouter.post(routers.editVideo(), onlyPrivate, postEditVideo);
+videoRouter.get(routes.editVideo(), onlyPrivate, getEditVideo);
+videoRouter.post(routes.editVideo(), onlyPrivate, postEditVideo);
 
 // DELETE VIDEO
-videoRouter.get(routers.deleteVideo(), onlyPrivate, deleteVideo);
+videoRouter.get(routes.deleteVideo(), onlyPrivate, deleteVideo);
 
 export default videoRouter;

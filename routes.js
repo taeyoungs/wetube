@@ -5,6 +5,7 @@ const JOIN = '/join';
 const LOGIN = '/login';
 const LOGOUT = '/logout';
 const SEARCH = '/search';
+const ME = '/myProfile';
 
 // Users
 
@@ -26,7 +27,7 @@ const DELETE_VIDEO = '/:id/delete';
 const GITHUB = '/auth/github';
 const GITHUB_CALLBACK = '/auth/github/callback';
 
-const routers = {
+const routes = {
   home: HOME,
   join: JOIN,
   login: LOGIN,
@@ -63,6 +64,7 @@ const routers = {
   },
   github: GITHUB,
   githubCallback: GITHUB_CALLBACK,
+  me: ME,
 };
 
-export default routers;
+export default routes;

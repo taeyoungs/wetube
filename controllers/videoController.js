@@ -1,4 +1,4 @@
-import routers from '../router';
+import routes from '../routes';
 import Video from '../models/Video';
 
 // HOME
@@ -44,7 +44,7 @@ export const postUpload = async (req, res) => {
     title,
     description,
   });
-  res.redirect(routers.videoDetail(newVideo.id));
+  res.redirect(routes.videoDetail(newVideo.id));
 };
 
 // VIDEO DETAIL
@@ -57,7 +57,7 @@ export const videoDetail = async (req, res) => {
     const video = await Video.findById(id);
     res.render('videoDetail', {pageTitle: video.title, video});
   } catch (error) {
-    res.redirect(routers.home);
+    res.redirect(routes.home);
   }
 };
 
@@ -70,7 +70,7 @@ export const getEditVideo = async (req, res) => {
     const video = await Video.findById(id);
     res.render('editVideo', {pageTitle: `Edit ${video.title}`, video});
   } catch (error) {
-    res.redirect(routers.home);
+    res.redirect(routes.home);
   }
 };
 
@@ -82,9 +82,9 @@ export const postEditVideo = async (req, res) => {
   } = req;
   try {
     await Video.findOneAndUpdate({_id: id}, {title, description});
-    res.redirect(routers.videoDetail(id));
+    res.redirect(routes.videoDetail(id));
   } catch (error) {
-    res.redirect(routers.home);
+    res.redirect(routes.home);
   }
 };
 
@@ -95,5 +95,5 @@ export const deleteVideo = async (req, res) => {
   try {
     await Video.findOneAndRemove({_id: id});
   } catch (error) {}
-  res.redirect(routers.home);
+  res.redirect(routes.home);
 };

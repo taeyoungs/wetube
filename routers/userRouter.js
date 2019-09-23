@@ -1,5 +1,5 @@
 import express from 'express';
-import routers from '../router';
+import routes from '../routes';
 import {
   userDetail,
   editProfile,
@@ -9,8 +9,8 @@ import {onlyPrivate} from '../middlewares';
 
 const userRouter = express.Router();
 
-userRouter.get(routers.editProfile, onlyPrivate, editProfile);
-userRouter.get(routers.changePassword, onlyPrivate, changePassword);
-userRouter.get(routers.userDetail(), userDetail);
+userRouter.get(routes.editProfile, onlyPrivate, editProfile);
+userRouter.get(routes.changePassword, onlyPrivate, changePassword);
+userRouter.get(routes.userDetail(), userDetail);
 
 export default userRouter;
