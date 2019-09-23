@@ -39,6 +39,7 @@ export const postLogin = passport.authenticate('local', {
   successRedirect: routes.home,
 });
 
+// Github Login
 export const githubLogin = passport.authenticate('github');
 
 export const githubLoginCallback = async (_, __, profile, cb) => {
@@ -65,6 +66,60 @@ export const githubLoginCallback = async (_, __, profile, cb) => {
 };
 
 export const postGithubLogin = (req, res) => res.redirect(routes.home);
+
+// Facebook Login
+export const facebookLogin = passport.authenticate('facebook');
+
+export const facebookLoginCallback = (
+  accessToken,
+  refreshToken,
+  profile,
+  cb,
+) => {
+  console.log(accessToken, refreshToken, profile, cb);
+};
+
+export const postFacebookLogin = (req, res) => res.redirect(routes.home);
+
+// Kakao Login
+export const kakaoLogin = passport.authenticate('kakao', {
+  failureRedirect: '#!/login',
+});
+
+export const kakaoLoginCallback = async (
+  accessToken,
+  refreshToken,
+  profile,
+  done,
+) => {
+  const {
+    _json: {
+      id,
+      profile_image: avatarUrl,
+      nickname: name,
+      kaccount_email: email,
+    },
+  } = profile;
+  try {
+    const user = await User.findOne({email});
+    if (user) {
+      user.kakaoId = id;
+      user.save();
+      return done(null, user);
+    }
+    const newUser = await User.create({
+      email,
+      name,
+      avatarUrl,
+      kakaoId: id,
+    });
+    return done(null, newUser);
+  } catch (error) {
+    return done(error);
+  }
+};
+
+export const postKakaoLogin = (req, res) => res.redirect(routes.home);
 
 // userRouter.js
 export const users = (req, res) => res.render('users', {pageTitle: 'Users'});

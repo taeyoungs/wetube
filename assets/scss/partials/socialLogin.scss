@@ -1,5 +1,5 @@
 .social-login {
-  max-width: 400px;
+  max-width: 350px;
   button {
     font-weight: 600;
     font-size: 15px;
@@ -8,7 +8,7 @@
       color: white;
       i {
         font-size: 20px;
-        padding: 2px 2px 5px 0;
+        padding: 3px 2px 3px 0;
         font-weight: 400;
       }
     }
@@ -19,7 +19,20 @@
     color: white;
   }
   .social-login--facebook {
+    margin-bottom: 12px;
     background-color: #3b5998;
     color: white;
+  }
+  .social-login--kakao {
+    background-color: #fae100;
+    & a {
+      display: flex;
+      justify-content: center;
+      color: #3c1e1e;
+      font-size: 15px;
+      & img {
+        width: 23px;
+      }
+    }
   }
 }

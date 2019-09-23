@@ -384,7 +384,7 @@ button {
       margin-right: 7px; }
 
 .social-login {
-  max-width: 400px; }
+  max-width: 350px; }
   .social-login button {
     font-weight: 600;
     font-size: 15px;
@@ -393,15 +393,33 @@ button {
       color: white; }
       .social-login button a i {
         font-size: 20px;
-        padding: 2px 2px 5px 0;
+        padding: 3px 2px 3px 0;
         font-weight: 400; }
   .social-login .social-login--github {
     margin-bottom: 12px;
     background-color: rgba(0, 0, 0, 0.7);
     color: white; }
   .social-login .social-login--facebook {
+    margin-bottom: 12px;
     background-color: #3b5998;
     color: white; }
+  .social-login .social-login--kakao {
+    background-color: #fae100; }
+    .social-login .social-login--kakao a {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+         -moz-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      color: #3c1e1e;
+      font-size: 15px; }
+      .social-login .social-login--kakao a img {
+        width: 23px; }
 
 .videoBlock a {
   color: #3d3d3d; }

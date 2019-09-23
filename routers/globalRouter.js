@@ -11,6 +11,10 @@ import {
   githubLogin,
   postGithubLogin,
   getMe,
+  facebookLogin,
+  postFacebookLogin,
+  kakaoLogin,
+  postKakaoLogin,
 } from '../controllers/userController';
 import {onlyPublic, onlyPrivate} from '../middlewares';
 
@@ -26,11 +30,30 @@ globalRouter.get(routes.home, home);
 globalRouter.get(routes.search, search);
 globalRouter.get(routes.logout, onlyPrivate, logout);
 
+// Github Login
 globalRouter.get(routes.github, githubLogin);
 globalRouter.get(
   routes.githubCallback,
   passport.authenticate('github', {failureRedirect: '/login'}),
   postGithubLogin,
+);
+
+// Facebook Login
+globalRouter.get(routes.facebook, facebookLogin);
+globalRouter.get(
+  routes.facebookCallback,
+  passport.authenticate('facebook', {failureRedirect: '/login'}),
+  postFacebookLogin,
+);
+
+// Kakao Login
+globalRouter.get(routes.kakao, kakaoLogin);
+globalRouter.get(
+  routes.kakaoCallback,
+  passport.authenticate('kakao', {
+    failureRedirect: '#!/login',
+  }),
+  postKakaoLogin,
 );
 
 globalRouter.get(routes.me, getMe);

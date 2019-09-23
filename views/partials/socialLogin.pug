@@ -6,5 +6,11 @@
                 |&nbsp;Continue with Github
     button.social-login--facebook
         span
-            i.fab.fa-facebook-square
-            |&nbsp;Continue with Facebook
+            a(href=routes.facebook)
+                i.fab.fa-facebook-square
+                |&nbsp;Continue with Facebook
+    button.social-login--kakao
+        span
+            a(href=routes.kakao)
+                img(src="/static/kakao.png")
+                |&nbsp;Continue with Kakao
