@@ -15,6 +15,8 @@ import {
   postFacebookLogin,
   kakaoLogin,
   postKakaoLogin,
+  instaLogin,
+  postInstaLogin,
 } from '../controllers/userController';
 import {onlyPublic, onlyPrivate} from '../middlewares';
 
@@ -54,6 +56,14 @@ globalRouter.get(
     failureRedirect: '#!/login',
   }),
   postKakaoLogin,
+);
+
+// Instagram Login
+globalRouter.get(routes.insta, instaLogin);
+globalRouter.get(
+  routes.instaCallback,
+  passport.authenticate('instagram', {failureRedirect: '/login'}),
+  postInstaLogin,
 );
 
 globalRouter.get(routes.me, getMe);

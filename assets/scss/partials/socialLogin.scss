@@ -1,6 +1,7 @@
 .social-login {
   max-width: 350px;
   button {
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
     font-weight: 600;
     font-size: 15px;
     cursor: pointer;
@@ -25,6 +26,7 @@
   }
   .social-login--kakao {
     background-color: #fae100;
+    margin-bottom: 12px;
     & a {
       display: flex;
       justify-content: center;
@@ -34,5 +36,15 @@
         width: 23px;
       }
     }
+  }
+  .social-login--instagram {
+    background: #d6249f;
+    background: radial-gradient(
+      circle at 30% 107%,
+      #fdf497 0%,
+      #fd5949 45%,
+      #d6249f 60%,
+      #285aeb 90%
+    );
   }
 }

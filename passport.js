@@ -2,11 +2,13 @@ import passport from 'passport';
 import GithubStrategy from 'passport-github';
 import PassportStrategy from 'passport-facebook';
 import KakaoStrategy from 'passport-kakao';
+import InstagramStrategy from 'passport-instagram';
 import User from './models/User';
 import {
   githubLoginCallback,
   facebookLoginCallback,
   kakaoLoginCallback,
+  instaLoginCallback,
 } from './controllers/userController';
 import routes from './routes';
 
@@ -41,6 +43,18 @@ passport.use(
       callbackURL: 'http://localhost:4000/oauth',
     },
     kakaoLoginCallback,
+  ),
+);
+
+// 인스타에서 이메일 정보를 주지 않기 때문에 console.log 까지만 진행
+passport.use(
+  new InstagramStrategy(
+    {
+      clientID: process.env.INSTA_ID,
+      clientSecret: process.env.INSTA_SECRET,
+      callbackURL: `http://localhost:4000${routes.instaCallback}`,
+    },
+    instaLoginCallback,
   ),
 );
 

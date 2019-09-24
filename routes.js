@@ -34,6 +34,10 @@ const FB_CALLBACK = '/auth/facebook/callback';
 const KAKAO = '/auth/kakao';
 const KAKAO_CALLBACK = '/oauth';
 
+// Instagram
+const INSTA = '/auth/instagram';
+const INSTA_CALLBACK = '/auth/instagram/callback';
+
 const routes = {
   home: HOME,
   join: JOIN,
@@ -76,6 +80,8 @@ const routes = {
   facebookCallback: FB_CALLBACK,
   kakao: KAKAO,
   kakaoCallback: KAKAO_CALLBACK,
+  insta: INSTA,
+  instaCallback: INSTA_CALLBACK,
 };
 
 export default routes;

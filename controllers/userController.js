@@ -86,12 +86,7 @@ export const kakaoLogin = passport.authenticate('kakao', {
   failureRedirect: '#!/login',
 });
 
-export const kakaoLoginCallback = async (
-  accessToken,
-  refreshToken,
-  profile,
-  done,
-) => {
+export const kakaoLoginCallback = async (_, __, profile, done) => {
   const {
     _json: {
       id,
@@ -120,6 +115,21 @@ export const kakaoLoginCallback = async (
 };
 
 export const postKakaoLogin = (req, res) => res.redirect(routes.home);
+
+// Instagram Login
+export const instaLogin = passport.authenticate('instagram');
+
+// 인스타에서 이메일 정보를 주지 않음 -> 여기까지만
+export const instaLoginCallback = (
+  accessToken,
+  refreshToken,
+  profile,
+  done,
+) => {
+  console.log(accessToken, refreshToken, profile, done);
+};
+
+export const postInstaLogin = (req, res) => res.redirect(routes.home);
 
 // userRouter.js
 export const users = (req, res) => res.render('users', {pageTitle: 'Users'});
