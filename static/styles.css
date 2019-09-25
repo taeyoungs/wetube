@@ -482,8 +482,12 @@ button {
   .video-detail__container .video__info,
   .video-detail__container .video__views,
   .video-detail__container .video__title,
-  .video-detail__container .video__description {
+  .video-detail__container .video__description,
+  .video-detail__container .video__author {
     margin-bottom: 15px; }
+  .video-detail__container .video__author a {
+    color: #472410;
+    font-weight: 600; }
   .video-detail__container .video__comments {
     -webkit-align-self: center;
         -ms-flex-item-align: center;

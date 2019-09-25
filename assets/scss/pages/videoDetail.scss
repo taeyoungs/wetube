@@ -7,7 +7,7 @@
   button {
     max-width: 150px;
     margin-bottom: 25px;
-    background-color: #472410;
+    background-color: $chocolate;
     color: white;
   }
   .video__player {
@@ -26,8 +26,16 @@
   .video__info,
   .video__views,
   .video__title,
-  .video__description {
+  .video__description,
+  .video__author {
     margin-bottom: 15px;
+  }
+
+  .video__author {
+    a {
+      color: $chocolate;
+      font-weight: 600;
+    }
   }
 
   .video__comments {
