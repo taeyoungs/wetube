@@ -525,7 +525,8 @@ button {
   -webkit-align-items: center;
      -moz-box-align: center;
       -ms-flex-align: center;
-          align-items: center; }
+          align-items: center;
+  margin-bottom: 30px; }
   .user-profile .user-profile__header {
     margin-bottom: 20px; }
     .user-profile .user-profile__header .u-avatar {
@@ -539,3 +540,13 @@ button {
     color: white; }
     .user-profile .user-profile__bts button i {
       margin-right: 8px; }
+
+.uploaded-videos {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(150px, 1fr));
+  grid-column: span 1;
+  grid-gap: 30px; }
+  .uploaded-videos .videoBlock:nth-child(1),
+  .uploaded-videos .videoBlock:nth-child(2),
+  .uploaded-videos .videoBlock:nth-child(3) {
+    grid-column: span 2; }
