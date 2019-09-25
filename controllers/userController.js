@@ -50,6 +50,7 @@ export const githubLoginCallback = async (_, __, profile, cb) => {
     const user = await User.findOne({email});
     if (user) {
       user.githubId = id;
+      user.avatarUrl = avatarUrl;
       user.save();
       return cb(null, user);
     }
@@ -99,6 +100,7 @@ export const kakaoLoginCallback = async (_, __, profile, done) => {
     const user = await User.findOne({email});
     if (user) {
       user.kakaoId = id;
+      user.avatarUrl = avatarUrl;
       user.save();
       return done(null, user);
     }
@@ -150,7 +152,27 @@ export const userDetail = async (req, res) => {
   }
 };
 
-export const editProfile = (req, res) =>
+export const getEditProfile = (req, res) =>
   res.render('editProfile', {pageTitle: 'Edit Profile'});
+
+export const postEditProfile = async (req, res) => {
+  const {
+    body: {email, name},
+    file,
+  } = req;
+  console.log(req.body.name);
+  try {
+    const user = await User.findByIdAndUpdate(req.user.id, {
+      name,
+      email,
+      avatarUrl: file ? file.path : req.user.avatarUrl,
+    });
+    console.log(user);
+    res.redirect(routes.me);
+  } catch (error) {
+    res.redirect(routes.editProfile);
+  }
+};
+
 export const changePassword = (req, res) =>
   res.render('changePassword', {pageTitle: 'Change Password'});
