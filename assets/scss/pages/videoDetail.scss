@@ -10,10 +10,57 @@
     background-color: $chocolate;
     color: white;
   }
-  .video__player {
+  .videoPlayer {
     margin-bottom: 20px;
+    max-height: 420px;
+    &:hover {
+      .videoPlayer__controls {
+        opacity: 1;
+      }
+    }
     video {
       min-height: 400px;
+      width: 100%;
+    }
+    .videoPlayer__controls {
+      opacity: 0;
+      transition: opacity 0.3s linear;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      padding: 20px 20px;
+      color: white;
+      background-image: linear-gradient(to top, #333, rgba(0, 0, 0, 0.1));
+      position: relative;
+      bottom: 58px;
+      z-index: 10;
+      .videoPlayer__column:first-child {
+        display: flex;
+        align-items: center;
+        span:first-child {
+          margin-left: 20px;
+          i {
+            font-size: 16px;
+          }
+        }
+        span:last-child {
+          margin-left: 30px;
+          font-size: 15px;
+          font-weight: 600;
+        }
+      }
+      .videoPlayer__column:last-child {
+        justify-self: end;
+        span:last-child {
+          margin-left: 50px;
+          margin-right: 20px;
+        }
+      }
+      span {
+        i {
+          font-size: 19px;
+          cursor: pointer;
+        }
+      }
     }
   }
   .video__title {

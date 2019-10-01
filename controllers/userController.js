@@ -7,6 +7,7 @@ export const logout = (req, res) => {
   res.redirect(routes.home);
 };
 
+// Join
 export const getJoin = (req, res) => res.render('join', {pageTitle: 'Join'});
 export const postJoin = async (req, res, next) => {
   const {
@@ -134,8 +135,10 @@ export const postInstaLogin = (req, res) => res.redirect(routes.home);
 // userRouter.js
 export const users = (req, res) => res.render('users', {pageTitle: 'Users'});
 
-export const getMe = (req, res) => {
-  res.render('userDetail', {pageTitle: 'User Detail', user: req.user});
+export const getMe = async (req, res) => {
+  // console.log(req.user);
+  const user = await User.findById(req.user.id).populate('videos');
+  res.render('userDetail', {pageTitle: 'User Detail', user});
 };
 
 export const userDetail = async (req, res) => {
@@ -144,13 +147,14 @@ export const userDetail = async (req, res) => {
   } = req;
   try {
     const user = await User.findById(id).populate('videos');
-    // console.log(user);
+    console.log(user);
     res.render('userDetail', {pageTitle: 'User Detail', user});
   } catch (error) {
     res.redirect(routes.home);
   }
 };
 
+// Edit Profile
 export const getEditProfile = (req, res) =>
   res.render('editProfile', {pageTitle: 'Edit Profile'});
 
@@ -171,6 +175,7 @@ export const postEditProfile = async (req, res) => {
   }
 };
 
+// Change Password
 export const getChangePassword = (req, res) =>
   res.render('changePassword', {pageTitle: 'Change Password'});
 
