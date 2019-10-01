@@ -22,7 +22,7 @@ main {
 button,
 textarea,
 .fileUpload,
-input:not([type='file']) {
+input:not([type='range'], [type='file']) {
   font-family: 'Titillium Web';
   box-sizing: border-box;
   padding: 7px 10px;
@@ -36,6 +36,25 @@ input:not([type='file']) {
     font-weight: 300;
     color: rgba(0, 0, 0, 0.7);
   }
+}
+
+input[type='range'] {
+  -webkit-appearance: none; /* Override default CSS styles */
+  appearance: none;
+  background-color: #636e72;
+  height: 4px;
+  border-radius: 15px;
+  cursor: pointer; /* Cursor on hover */
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 11px; /* Set a specific slider handle width */
+  height: 11px; /* Slider handle height */
+  background: white;
+  cursor: pointer; /* Cursor on hover */
+  border-radius: 50px;
 }
 
 button {
