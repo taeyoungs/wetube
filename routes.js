@@ -38,6 +38,11 @@ const KAKAO_CALLBACK = '/oauth';
 const INSTA = '/auth/instagram';
 const INSTA_CALLBACK = '/auth/instagram/callback';
 
+// API
+const API = '/api';
+const REGISTER_VIEW = '/:id/view';
+const ADD_COMMENT = '/:id/comment';
+
 const routes = {
   home: HOME,
   join: JOIN,
@@ -82,6 +87,9 @@ const routes = {
   kakaoCallback: KAKAO_CALLBACK,
   insta: INSTA,
   instaCallback: INSTA_CALLBACK,
+  api: API,
+  registerView: REGISTER_VIEW,
+  addComment: ADD_COMMENT,
 };
 
 export default routes;

@@ -128,5 +128,13 @@
     align-self: center;
     font-size: 17px;
     font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .add__comment {
+    margin: 0 auto;
+    input {
+      min-width: 300px;
+    }
   }
 }
