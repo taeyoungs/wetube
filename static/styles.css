@@ -168,7 +168,7 @@ main {
 button,
 textarea,
 .fileUpload,
-input:not([type='range'], [type='file']) {
+input:not([type='file']) {
   font-family: 'Titillium Web';
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
@@ -187,41 +187,42 @@ input:not([type='range'], [type='file']) {
   button::-webkit-input-placeholder,
   textarea::-webkit-input-placeholder,
   .fileUpload::-webkit-input-placeholder,
-  input::-webkit-input-placeholder {
+  input:not([type='file'])::-webkit-input-placeholder {
     font-weight: 300;
     color: rgba(0, 0, 0, 0.7); }
   button:-moz-placeholder,
   textarea:-moz-placeholder,
   .fileUpload:-moz-placeholder,
-  input:-moz-placeholder {
+  input:not([type='file']):-moz-placeholder {
     font-weight: 300;
     color: rgba(0, 0, 0, 0.7); }
   button::-moz-placeholder,
   textarea::-moz-placeholder,
   .fileUpload::-moz-placeholder,
-  input::-moz-placeholder {
+  input:not([type='file'])::-moz-placeholder {
     font-weight: 300;
     color: rgba(0, 0, 0, 0.7); }
   button:-ms-input-placeholder,
   textarea:-ms-input-placeholder,
   .fileUpload:-ms-input-placeholder,
-  input:-ms-input-placeholder {
+  input:not([type='file']):-ms-input-placeholder {
     font-weight: 300;
     color: rgba(0, 0, 0, 0.7); }
   button::-ms-input-placeholder,
   textarea::-ms-input-placeholder,
   .fileUpload::-ms-input-placeholder,
-  input::-ms-input-placeholder {
+  input:not([type='file'])::-ms-input-placeholder {
     font-weight: 300;
     color: rgba(0, 0, 0, 0.7); }
   button::placeholder,
   textarea::placeholder,
   .fileUpload::placeholder,
-  input::placeholder {
+  input:not([type='file'])::placeholder {
     font-weight: 300;
     color: rgba(0, 0, 0, 0.7); }
 
 input[type='range'] {
+  padding: 0;
   -webkit-appearance: none;
   /* Override default CSS styles */
   -moz-appearance: none;

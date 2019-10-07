@@ -22,7 +22,7 @@ main {
 button,
 textarea,
 .fileUpload,
-input:not([type='range'], [type='file']) {
+input:not([type='file']) {
   font-family: 'Titillium Web';
   box-sizing: border-box;
   padding: 7px 10px;
@@ -39,6 +39,7 @@ input:not([type='range'], [type='file']) {
 }
 
 input[type='range'] {
+  padding: 0;
   -webkit-appearance: none; /* Override default CSS styles */
   appearance: none;
   background-color: #636e72;
