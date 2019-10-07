@@ -62,6 +62,8 @@ export const videoDetail = async (req, res) => {
       .populate('creator')
       .populate('comments');
     // console.log(video);
+    // const commnetList = await Comment.find({id: video.id});
+    // console.log(commnetList);
     res.render('videoDetail', {pageTitle: video.title, video});
   } catch (error) {
     res.redirect(routes.home);
