@@ -38,10 +38,10 @@ export const postUpload = async (req, res) => {
   // To Do: Upload and save video
   const {
     body: {title, description},
-    file: {path},
+    file: {location},
   } = req;
   const newVideo = await Video.create({
-    fileUrl: path,
+    fileUrl: location,
     title,
     description,
     creator: req.user.id,
@@ -61,7 +61,6 @@ export const videoDetail = async (req, res) => {
     const video = await Video.findById(id)
       .populate('creator')
       .populate('comments');
-    // console.log(video);
     // const commnetList = await Comment.find({id: video.id});
     // console.log(commnetList);
     res.render('videoDetail', {pageTitle: video.title, video});
@@ -150,6 +149,26 @@ export const postAddComment = async (req, res) => {
       creator: user.id,
     });
     video.comments.push(newComment.id);
+    video.save();
+  } catch (error) {
+    res.status(400);
+  } finally {
+    res.end();
+  }
+};
+
+export const postDeleteComment = async (req, res) => {
+  const {
+    // Video ID
+    params: {id},
+    // Comment Id
+    body: {commentId},
+  } = req;
+  try {
+    await Comment.findOneAndDelete({_id: commentId});
+    const video = await Video.findById(id);
+    const index = video.comments.indexOf(commentId);
+    video.comments.splice(index, 1);
     video.save();
   } catch (error) {
     res.status(400);

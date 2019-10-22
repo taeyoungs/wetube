@@ -33,4 +33,6 @@ block content
         ul.video__comment-list#jsCommentList
             each comment in video.comments.reverse()
                 li
-                    span=comment.text
+                    span #{comment.text}
+                        if loggedUser !== null && String(comment.creator) === String(loggedUser._id)
+                            i.far.fa-trash-alt.deleteCommentBtn(data-id=`${comment.id}`)

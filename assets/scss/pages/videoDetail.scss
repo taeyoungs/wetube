@@ -112,12 +112,12 @@
   .video__info,
   .video__views,
   .video__title,
-  .video__description,
-  .video__author {
+  .video__description {
     margin-bottom: 15px;
   }
 
   .video__author {
+    margin-bottom: 30px;
     a {
       color: $chocolate;
       font-weight: 600;
@@ -132,9 +132,36 @@
   }
 
   .add__comment {
-    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
     input {
-      min-width: 300px;
+      max-width: 300px;
+    }
+  }
+  .video__comment-list {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 450px;
+    li {
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      background-color: white;
+      span {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .fa-trash-alt {
+          color: #7f8c8d;
+          cursor: pointer;
+          opacity: 0.7;
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
     }
   }
 }
