@@ -129,6 +129,19 @@ function handleVolumeRange(event) {
   }
 }
 
+const handleSpaceBar = event => {
+  event.preventDefault();
+  if (event.keyCode === 32) {
+    if (videoPlayer.paused) {
+      videoPlayer.play();
+      playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+    } else {
+      videoPlayer.pause();
+      playBtn.innerHTML = '<i class="fas fa-play"></i>';
+    }
+  }
+};
+
 // init 함수에서 이벤트 리스너를 호출
 function init() {
   playBtn.addEventListener('click', handlePlayClick);
@@ -136,6 +149,12 @@ function init() {
   fullScreenBtn.addEventListener('click', goFullScreen);
   videoPlayer.addEventListener('ended', handleEnded);
   volumeRange.addEventListener('input', handleVolumeRange);
+  videoContainer.addEventListener('keydown', handleSpaceBar);
+
+  setTotalTime();
+  timeRange.max = Math.floor(videoPlayer.duration);
+  timeRange.step = 1;
+  timeRange.value = 0;
 
   videoPlayer.onloadedmetadata = () => {
     setTotalTime();

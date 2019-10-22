@@ -13,6 +13,7 @@
   .videoPlayer {
     margin-bottom: 20px;
     max-height: 420px;
+    outline: 0;
     &:hover {
       .videoPlayer__controls {
         opacity: 1;
