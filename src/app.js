@@ -21,13 +21,10 @@ const app = express();
 
 const CookieStore = MongoStore(session);
 
-process.env.PWD = process.cwd();
-
 app.use(helmet());
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 app.use(cookieParser());
-app.use('/public', express.static(path.join(process.env.PWD, 'public')));
 app.use('/static', express.static(path.join(__dirname, 'static')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
