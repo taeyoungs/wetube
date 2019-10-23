@@ -19,7 +19,7 @@ passport.use(
     {
       clientID: process.env.GH_ID,
       clientSecret: process.env.GH_SECRET,
-      callbackURL: `https://aqueous-forest-25551.herokuapp.com/${routes.githubCallback}`,
+      callbackURL: `https://aqueous-forest-25551.herokuapp.com${routes.githubCallback}`,
     },
     githubLoginCallback,
   ),
@@ -31,7 +31,7 @@ passport.use(
 //       clientID: process.env.GH_ID,
 //       clientSecret: process.env.GH_SECRET,
 //       callbackURL: process.env.PRODUCTION
-//         ? `https://aqueous-forest-25551.herokuapp.com/${routes.githubCallback}`
+//         ? `https://aqueous-forest-25551.herokuapp.com${routes.githubCallback}`
 //         : `http://localhost:4000${routes.githubCallback}`,
 //     },
 //     githubLoginCallback,
