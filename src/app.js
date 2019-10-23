@@ -22,7 +22,6 @@ const app = express();
 const CookieStore = MongoStore(session);
 
 process.env.PWD = process.cwd();
-console.log(process.env.PWD);
 
 app.use(helmet());
 app.set('view engine', 'pug');
